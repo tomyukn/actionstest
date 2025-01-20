@@ -1,10 +1,10 @@
 fn main() {
-    let greet = say_hello();
+    let greet = say_hello("John");
     println!("{}", greet);
 }
 
-fn say_hello() -> &'static str {
-    "Hello, world!"
+fn say_hello(name: &str) -> String {
+    format!("Hello, {}!", name)
 }
 
 #[cfg(test)]
@@ -13,6 +13,6 @@ mod tests {
 
     #[test]
     fn test_say_hello() {
-        assert_eq!(say_hello(), "Hello, world!");
+        assert_eq!(say_hello("John"), "Hello, John!");
     }
 }
